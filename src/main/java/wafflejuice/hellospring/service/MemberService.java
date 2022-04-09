@@ -2,6 +2,7 @@ package wafflejuice.hellospring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import wafflejuice.hellospring.domain.Member;
 import wafflejuice.hellospring.repository.MemberRepository;
 import wafflejuice.hellospring.repository.MemoryMemberRepository;
@@ -9,6 +10,7 @@ import wafflejuice.hellospring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
