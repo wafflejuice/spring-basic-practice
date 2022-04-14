@@ -13,21 +13,32 @@ import javax.persistence.EntityManager;
 @Configuration
 public class SpringConfig {
 
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    /*
     private EntityManager em;
 
     @Autowired
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+     */
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
+    /*
     @Bean
     public MemberRepository memberRepository() {
-//        return new MemoryMemberRepository();
+        return new MemoryMemberRepository();
         return new JpaMemberRepository(em);
     }
+     */
 }
